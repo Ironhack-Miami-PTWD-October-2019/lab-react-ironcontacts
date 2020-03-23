@@ -22,29 +22,22 @@ class App extends Component {
   };
 
   sortByName = () => {
-    let copyOfTheContacts = [...this.state.contacts];
-    copyOfTheContacts.sort((a, b) => {
+    let copyOfDisplayContacts = [...this.state.displayContacts];
+    copyOfDisplayContacts.sort((a, b) => {
       return a.name.localeCompare(b.name);
     });
 
-    this.setState(
-      {
-        contacts: copyOfTheContacts,
-        displayContacts: copyOfTheContacts
-      },
-      this.search
-    );
+    this.setState({
+      displayContacts: copyOfDisplayContacts
+    });
   };
 
   sortByPopularity = () => {
-    let copyOfTheContacts = [...this.state.contacts];
-    copyOfTheContacts.sort((a, b) => b.popularity - a.popularity);
-    this.setState(
-      {
-        contacts: copyOfTheContacts
-      },
-      this.search
-    );
+    let copyOfDisplayContacts = [...this.state.displayContacts];
+    copyOfDisplayContacts.sort((a, b) => b.popularity - a.popularity);
+    this.setState({
+      displayContacts: copyOfDisplayContacts
+    });
   };
 
   deleteContact = actor => {
